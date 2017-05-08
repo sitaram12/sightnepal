@@ -1,0 +1,7 @@
+Software Testing Verification:
+
+According to dictionary,Verification means to confirm something. But in software Testing, Verification is process to identify the requirements of system  and evaluating the work. Its objective is to determine the sytem being developed on the basis of requirements as well as design basic.
+
+Software Testing Validation:
+
+Validation is a process to test the system have fullfilled user requirements or not. It  defines the term whether we have developed suitable system according to requirements of not. This is testing phase from where we test our system work properly according to their needs.

@@ -1,0 +1,70 @@
+------------------------iterative sequence upto one million using form application c#-------------------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+.....................................................................................................................
+
+namespace WindowsFormsApplication21
+{
+    public partial class Form3 : Form
+    {
+        public Form3()
+        {
+            InitializeComponent();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+           
+        }
+.........................................................................................................
+
+        private void btnclick_Click(object sender, EventArgs e)
+        {
+            const int number = 1000000;
+            long sequenceLength = 0;
+            long startingNumber = 0;
+            long sequence;
+
+            for (int i = 2; i <= number; i++)
+            {
+                int length = 1;
+                sequence = i;
+                while (sequence != 1)
+                {
+                    if ((sequence % 2) == 0)
+                    {
+                        sequence = (sequence / 2);
+                       
+                    }
+                    else
+                    {
+                        sequence = sequence * 3 + 1;
+                    }
+                    length++;
+                    //MessageBox.Show(sequence.ToString());
+                }
+................................................................................................................
+                //Check if sequence is the best solution
+                if (length > sequenceLength)
+                {
+                    sequenceLength = length;
+                    startingNumber = i;
+                }
+..........................................................................................................................
+            }
+             MessageBox.Show("The starting number : "+ startingNumber.ToString() + " " + "Sequence Length: " + sequenceLength);
+              } 
+-------------------------------------------------------------------------------------------------------------------------
+        }
+        }
+        
+       
+
+

@@ -1,0 +1,108 @@
+/*---------------- isomorphic using class library--------------------*/
+
+// this is ismorphic parent class
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+-----------------------------------------------------------
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+       
+        public static void Main(string[] args)
+        {
+            isomor pg = new isomor();                          //inherit ismor class
+            string firstname = "Enter First text :";           //fist text assign in variable
+            string secondname = "Enter Second text :";
+            Console.WriteLine(firstname);			//display first text from here
+           string exe1= Console.ReadLine();			//input value for first text from here
+            Console.WriteLine(secondname);
+           string exe2= Console.ReadLine();
+--------------------------------------------------------------------------------------------------------
+           
+            if (exe1.Length > 0)            
+            {
+                if (exe2.Length > 0)
+                {
+                    bool ismor = pg.isIsomorphic(exe1,exe2);        //call isIsomorphic function from isomor class
+                    if (ismor)					    //Check Condition true or false from isIsomorphic                      function
+                    {
+                        Console.WriteLine("Isomorphic");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not Isomorphic");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Input Value");
+                }
+            }
+            else
+            {
+               Console.WriteLine("Input Value in First Textbox");
+            }
+
+            Console.ReadKey();
+        }
+  
+    }
+}
+......................................................................................
+//this is isomorphic main class
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+---------------------------------------------------------------------------------------------------------------
+namespace ConsoleApplication1
+{
+    public class isomor
+    {
+        public bool isIsomorphic(string s, string t)                           //take value from isomor object
+        {
+            if (s == null || t == null)                                       //if no value exit program
+                return false;
+-----------------------------------------------------------------------------------------------------------------------
+            if (s.Length != t.Length)					     //if not equal length  exit program
+                return false;
+                
+           Dictionary<char, char> map = new Dictionary<char, char>();                    //store two char value here
+
+             for (int i = 0; i < s.Length; i++)					//looping to check string value one by one
+             {
+                char c1 = s[i];              
+                char c2 = t[i];
+
+                if (map.ContainsKey(c1))
+                {
+                    if (map.TryGetValue(c1, out c1))                       // if not consistant with previous ones
+                        if (c1 != c2)
+                        {
+                            return false;
+                        }
+                }
+                else
+                {
+                    if (map.ContainsValue(c2))                          //if c2 is already being mapped
+                        return false;
+                    map.Add(c1, c2);
+                }
+            }
+
+            return true;
+        }
+-----------------------------------------------------------------------------------------------------------------------
+
+    }
+}
+
+
